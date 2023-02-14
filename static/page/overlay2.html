@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="/static/css/overlay2.css" rel="stylesheet">
+     <script>
+          (function(d) {
+               var config = {
+               kitId: 'kbm3kae',
+               scriptTimeout: 3000,
+               async: true
+               },
+               h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+          })(document);
+     </script>
+</head>
+<body>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+     <script src="/static/js/overlay.js"></script>
+
+    <div id="streaming_contents_area">
+        Contents window must be placed here.<br/>
+        Window size: 1600x900<br/>
+        Paddings to top and left are 8px each.
+    </div>
+
+    <!-- Side bar -->
+    <div id="sidebar">
+        <div class="grid-container">
+            <div id="vs_mode" class="color-vsmode text-size-large centering"></div>
+            <div id="judge" class="color-ally text-size-large centering"></div>
+            <!-- <div id="score" class="color-ally text-size-large centering"></div> -->
+            <div id="map" class="color-neutral text-size-medium centering"></div>
+            <div class="spacing-vert-32px"></div>
+            
+            <div class="grid-container grid-3col inkinfo-enable-with-rule" rule="turf">
+                <div id="battle_turf_ally_stats_teamname" class="color-ally text-size-small align-left">みかた</div>
+                <div class="color-neutral text-size-small centering">vs</div>
+                <div id="battle_turf_enemy_stats_teamname" class="color-enemy text-size-small align-right">あいて</div>
+
+                
+                <div id="battle_turf_ally_stats_paintRatio" class="color-ally text-size-small align-left"></div>
+                <div class="color-neutral text-size-small centering">ぬり</div>
+                <div id="battle_turf_enemy_stats_paintRatio" class="color-enemy text-size-small align-right"></div>
+
+                
+                <div id="battle_turf_ally_stats_splat" class="color-ally text-size-small align-left"></div>
+                <div class="color-neutral text-size-small centering">たおした</div>
+                <div id="battle_turf_enemy_stats_splat" class="color-enemy text-size-small align-right"></div>
+
+                
+                <div id="battle_turf_ally_stats_splatted" class="color-ally text-size-small align-left"></div>
+                <div class="color-neutral text-size-small centering">やられた</div>
+                <div id="battle_turf_enemy_stats_splatted" class="color-enemy text-size-small align-right"></div>
+            </div>
+
+            <div class="grid-container grid-3col inkinfo-enable-with-rule" rule="bankara">
+                <div id="battle_bankara_ally_stats_teamname" class="color-ally text-size-small align-left">みかた</div>
+                <div class="color-neutral text-size-small centering">vs</div>
+                <div id="battle_bankara_enemy_stats_teamname" class="color-enemy text-size-small align-right">あいて</div>
+
+                
+                <div id="battle_bankara_ally_stats_score" class="color-ally text-size-small align-left"></div>
+                <div class="color-neutral text-size-small centering">ポイント</div>
+                <div id="battle_bankara_enemy_stats_score" class="color-enemy text-size-small align-right"></div>
+
+                
+                <div id="battle_bankara_ally_stats_splat" class="color-ally text-size-small align-left"></div>
+                <div class="color-neutral text-size-small centering">たおした</div>
+                <div id="battle_bankara_enemy_stats_splat" class="color-enemy text-size-small align-right"></div>
+
+                
+                <div id="battle_bankara_ally_stats_splatted" class="color-ally text-size-small align-left"></div>
+                <div class="color-neutral text-size-small centering">やられた</div>
+                <div id="battle_bankara_enemy_stats_splatted" class="color-enemy text-size-small align-right"></div>
+            </div>
+
+            <div class="grid-container inkinfo-enable-with-rule" rule="tri">
+                <div class="color-defense text-size-medium align-left">守備チーム</div>
+                <div class="grid-container grid-3col">
+                    <div id="battle_tri_defense_stats_teamname" class="color-defense text-size-small align-left"></div>
+                    <div></div>
+                    <div></div>
+
+                    <div id="battle_tri_defense_stats_paintRatio" class="color-defense text-size-small align-left"></div>
+                    <div class="color-neutral text-size-small centering">ぬり</div>
+                    <div></div>
+
+                    <div id="battle_tri_defense_stats_splat" class="color-defense text-size-small align-left"></div>
+                    <div class="color-neutral text-size-small centering">たおした</div>
+                    <div></div>
+
+                    <div id="battle_tri_defense_stats_splatted" class="color-defense text-size-small align-left"></div>
+                    <div class="color-neutral text-size-small centering">やられた</div>
+                    <div></div>
+                </div>
+                
+                <div class="spacing-vert-32px"></div>
+
+                <div class="color-attack1 text-size-medium align-left">攻撃チーム</div>
+                <div class="grid-container grid-3col">
+                    <div id="battle_tri_attack1_stats_teamname" class="color-attack1 text-size-small align-left"></div>
+                    <div></div>
+                    <div id="battle_tri_attack2_stats_teamname" class="color-attack2 text-size-small align-right"></div>
+
+                    <div id="battle_tri_attack1_stats_paintRatio" class="color-attack1 text-size-small align-left"></div>
+                    <div class="color-neutral text-size-small centering">ぬり</div>
+                    <div id="battle_tri_attack2_stats_paintRatio" class="color-attack2 text-size-small align-right"></div>
+
+                    <div id="battle_tri_attack1_stats_splat" class="color-attack1 text-size-small align-left"></div>
+                    <div class="color-neutral text-size-small centering">たおした</div>
+                    <div id="battle_tri_attack2_stats_splat" class="color-attack2 text-size-small align-right"></div>
+
+                    <div id="battle_tri_attack1_stats_splatted" class="color-attack1 text-size-small align-left"></div>
+                    <div class="color-neutral text-size-small centering">やられた</div>
+                    <div id="battle_tri_attack2_stats_splatted" class="color-attack2 text-size-small align-right"></div>
+                </div>
+            </div>
+
+            <div class="spacing-vert-32px"></div>
+
+            <div class="grid-container grid-2col color-ally text-size-medium">
+                <div id="personal_stats_username" class="inkinfo-personal-stats-username text-size-large"></div>
+
+                <div class="grid-container centering">
+                    <div class="color-neutral text-size-small">たおした</div>
+                    <div class="text-size-medium inkinfo-personal-stats-splat">0</div>
+                </div>
+
+                <div class="grid-container centering">
+                    <div class="color-neutral text-size-small">やられた</div>
+                    <div class="text-size-medium inkinfo-personal-stats-splatted">0</div>
+                </div>
+
+                <div class="grid-container centering">
+                    <div class="color-neutral text-size-small">アシスト</div>
+                    <div class="text-size-medium inkinfo-personal-stats-assist">0</div>
+                </div>
+
+                <div class="grid-container centering">
+                    <div class="color-neutral text-size-small">スペシャル</div>
+                    <div class="text-size-medium inkinfo-personal-stats-special">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

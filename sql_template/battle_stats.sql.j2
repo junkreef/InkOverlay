@@ -1,0 +1,35 @@
+-- SQLite
+select 
+    count(*),
+    sum(json_extract(player, '$.result.kill')) as kill,
+    sum(json_extract(player, '$.result.death')) as death,
+    sum(json_extract(player, '$.result.assist')) as assist,
+    sum(json_extract(player, '$.result.special')) as special,
+    sum(json_extract(player, '$.paint')) as paint
+from
+(
+    select * 
+    from history 
+    where 
+        type == 'battle'
+        {% if mode is not none %}
+            AND
+            json_extract(json, '$.vsMode.mode') == '{{mode}}'
+            {% set filter_already_exists = True %}
+        {% endif %}
+        
+        {% if after is not none %}
+            AND
+            datetime(json_extract(json, '$.playedTime')) > datetime('{{ after }}')
+        {% endif %}
+
+        {% if before is not none %}
+            AND
+            datetime(json_extract(json, '$.playedTime')) < datetime('{{ before }}')
+        {% endif %}
+
+        {% if weapon is not none %}
+            AND
+            json_extract(player, '$.weapon.id') == '{{ weapon }}'
+        {% endif %}
+)

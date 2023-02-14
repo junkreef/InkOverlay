@@ -1,0 +1,32 @@
+-- SQLite
+select 
+    json_extract(json, '$.judgement') as judgement,
+    count (*)
+from
+(
+    select * 
+    from history 
+    where 
+        type == 'battle'
+        {% if mode is not none %}
+            AND
+            json_extract(json, '$.vsMode.mode') == '{{mode}}'
+            {% set filter_already_exists = True %}
+        {% endif %}
+        
+        {% if after is not none %}
+            AND
+            datetime(json_extract(json, '$.playedTime')) > datetime('{{ after }}')
+        {% endif %}
+
+        {% if before is not none %}
+            AND
+            datetime(json_extract(json, '$.playedTime')) < datetime('{{ before }}')
+        {% endif %}
+
+        {% if weapon is not none %}
+            AND
+            json_extract(player, '$.weapon.id') == '{{ weapon }}'
+        {% endif %}
+)
+GROUP BY judgement;

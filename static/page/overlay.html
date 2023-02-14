@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="/static/css/overlay.css" rel="stylesheet">
+     <script>
+          (function(d) {
+               var config = {
+               kitId: 'kbm3kae',
+               scriptTimeout: 3000,
+               async: true
+               },
+               h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+          })(document);
+     </script>
+</head>
+<body>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+     <script src="/static/js/overlay.js"></script>
+
+     <div class="container">
+          <div id="header" class="banner">
+               <div id="header_body" class="banner-column banner-body">
+                    <div class="banner-row header-info">
+                         <div>
+                              A
+                         </div>
+                    </div>
+                    <div class="banner-row header-info">
+                         <div>
+                              B
+                         </div>
+                    </div>
+                    <div class="banner-row header-info">
+                         <div>
+                              C
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div id="footer" class="banner">
+               <div id="footer_title" class="banner-column text-size-large">               
+                    <div><span id="vs_mode" class="color-vsmode"></span></div>
+               </div>
+               <div id="footer_body" class="banner-column banner-body text-size-medium">
+                    <div class="banner-row centering">
+                         <img id="rule_image"/>
+                    </div>
+                    <div id="battle_overview" class="banner-row">
+                         <div><span id="judge" class="color-ally"></span></div>
+                         <div><span id="score" class="color-ally"></span></div>
+                         <div id="map" class="color-neutral text-size-small"></div>
+                    </div>
+
+                    <!-- ナワバリ用 -->
+                    <div id="battle_turf_ally_stats" class="banner-row color-ally text-size-small inkinfo-enable-with-rule" rule="turf">
+                         <div><span id="battle_turf_ally_stats_teamname">なかま</span></div>
+                         <div><span id="battle_turf_ally_stats_paintRatio"></span></div>
+                         <div><span id="battle_turf_ally_stats_splat"></span></div>
+                         <div><span id="battle_turf_ally_stats_splatted"></span></div>
+                    </div>
+                    <div class="banner-row text-size-small inkinfo-enable-with-rule" rule="turf" >
+                         <div class="centering">vs</div>
+                         <div class="centering">ぬり</div>
+                         <div class="centering">スプラット</div>
+                         <div class="centering">やられた</div>
+                    </div>
+                    <div id="battle_turf_enemy_stats" class="banner-row color-enemy text-size-small inkinfo-enable-with-rule" rule="turf">
+                         <div class="right-align"><span id="battle_turf_enemy_stats_teamname">あいて</span></div>
+                         <div class="right-align"><span id="battle_turf_enemy_stats_paintRatio"></span></div>
+                         <div class="right-align"><span id="battle_turf_enemy_stats_splat"></span></div>
+                         <div class="right-align"><span id="battle_turf_enemy_stats_splatted"></span></div>
+                    </div>
+
+                    <!-- 各種バンカラマッチ用 -->
+                    <div id="battle_bankara_ally_stats" class="banner-row color-ally text-size-small inkinfo-enable-with-rule" rule="bankara">
+                         <div><span id="battle_bankara_ally_stats_teamname">なかま</span></div>
+                         <div><span id="battle_bankara_ally_stats_score"></span></div>
+                         <div><span id="battle_bankara_ally_stats_splat"></span></div>
+                         <div><span id="battle_bankara_ally_stats_splatted"></span></div>
+                    </div>
+                    <div class="banner-row text-size-small inkinfo-enable-with-rule" rule="bankara">
+                         <div class="centering">vs</div>
+                         <div class="centering">ポイント</div>
+                         <div class="centering">スプラット</div>
+                         <div class="centering">やられた</div>
+                    </div>
+                    <div id="battle_bankara_enemy_stats" class="banner-row color-enemy text-size-small inkinfo-enable-with-rule" rule="bankara">
+                         <div class="right-align"><span id="battle_bankara_enemy_stats_teamname">あいて</span></div>
+                         <div class="right-align"><span id="battle_bankara_enemy_stats_score"></span></div>
+                         <div class="right-align"><span id="battle_bankara_enemy_stats_splat"></span></div>
+                         <div class="right-align"><span id="battle_bankara_enemy_stats_splatted"></span></div>
+                    </div>
+     
+                    <!-- ナワバリ用 -->
+                    <div class="banner-row color-ally text-size-medium inkinfo-enable-with-rule" rule="turf">
+                         <div class="inkinfo-personal-stats-username"></div>
+                         <div class="banner-column">
+                              <div class="banner-row">
+                                   <div class="color-neutral centering text-size-small">スプラット</div>
+                                   <div class="centering text-size-medium inkinfo-personal-stats-splat">0</div>
+                              </div>
+                              <div class="banner-row">
+                                   <div class="color-neutral centering text-size-small">やられた</div>
+                                   <div class="centering text-size-medium inkinfo-personal-stats-splatted">0</div>
+                              </div>
+                              <div class="banner-row">
+                                   <div class="color-neutral centering text-size-small">アシスト</div>
+                                   <div class="centering text-size-medium inkinfo-personal-stats-assist">0</div>
+                              </div>
+                              <div class="banner-row">
+                                   <div class="color-neutral centering text-size-small">スペシャル</div>
+                                   <div class="centering text-size-medium inkinfo-personal-stats-special">0</div>
+                              </div>
+                         </div>
+                    </div>
+
+                     <!-- 各種バンカラマッチ用 -->
+                     <div class="banner-row color-ally text-size-medium inkinfo-enable-with-rule" rule="bankara">
+                         <div class="inkinfo-personal-stats-username"></div>
+                         <div class="banner-column">
+                              <div class="banner-row">
+                                   <div class="color-neutral centering text-size-small">スプラット</div>
+                                   <div class="centering text-size-medium inkinfo-personal-stats-splat">0</div>
+                              </div>
+                              <div class="banner-row">
+                                   <div class="color-neutral centering text-size-small">やられた</div>
+                                   <div class="centering text-size-medium inkinfo-personal-stats-splatted">0</div>
+                              </div>
+                              <div class="banner-row">
+                                   <div class="color-neutral centering text-size-small">アシスト</div>
+                                   <div class="centering text-size-medium inkinfo-personal-stats-assist">0</div>
+                              </div>
+                              <div class="banner-row">
+                                   <div class="color-neutral centering text-size-small">スペシャル</div>
+                                   <div class="centering text-size-medium inkinfo-personal-stats-special">0</div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>     
+</body>
+</html>

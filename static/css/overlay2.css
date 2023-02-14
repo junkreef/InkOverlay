@@ -1,0 +1,95 @@
+body {
+    font-family: vdl-v7gothic, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 24px;
+    margin: 0px;
+    
+    line-height: 1.5;
+
+    width: 1920px;
+    height: 1080px;
+
+    background-color: #181818;
+}
+
+#streaming_contents_area {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: rgb(61, 61, 61);
+    width: 1600px;
+    height: 900px;
+    margin: 0px;
+    padding: 0px;
+
+    display: grid;
+    place-content: center;
+    place-items: center;  
+}
+
+#sidebar {
+    position: absolute;
+
+    top: 8px;
+    left: 1616px;
+    width: 296px;
+    height: 900px;
+}
+
+#personal_stats_username {
+    grid-column: 1 / 3;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.grid-2col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.text-size-large {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.text-size-medium {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.text-size-small {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.color-neutral {
+    color: #A0A0A0;
+}
+
+.align-left {
+    display: grid;
+    place-content: start;
+    place-items: start;
+}
+
+.align-right {
+    display: grid;
+    place-content: end;
+    place-items: end;
+}
+
+.centering {
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+
+.spacing-vert-32px {
+    height: 32px;
+}
