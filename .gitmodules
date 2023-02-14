@@ -1,3 +1,0 @@
-[submodule "s3s"]
-    path = s3s
-    url = https://github.com/junkreef/s3s.git
