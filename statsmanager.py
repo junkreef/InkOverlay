@@ -92,15 +92,14 @@ class StatsManager:
         return tasks
 
     async def fetch_battle_histories(self):
-        for _ in range(3):
+        for count in range(3):
             try:
                 battle_histories = await self.loop.run_in_executor(self._executor, partial(s3s.fetch_json_raw, "LatestBattleHistoriesQuery"))
             except requests.exceptions.ConnectionError:
-                self.logger.exception("Connection Error on fetch_battle_histories()")     
-                pass
+                self.logger.exception(
+                    "Connection Error on fetch_battle_histories(). #" + str(count) + " try.")
             except Exception as e:
                 self.logger.exception("Exception on fetch_battle_histories()")
-                pass
             else:
                 break
         else:
@@ -113,7 +112,8 @@ class StatsManager:
             try:
                 battle_detail = await self.loop.run_in_executor(self._executor, partial(s3s.fetch_detailed_result, True, id))
             except requests.exceptions.ConnectionError:
-                self.logger.exception("Connection Error on fetch_battle_detail()")     
+                self.logger.exception(
+                    "Connection Error on fetch_battle_detail()")
                 pass
             except Exception as e:
                 self.logger.exception("Exception on fetch_battle_detail()")
@@ -122,7 +122,7 @@ class StatsManager:
                 break
         else:
             return None
-        
+
         return battle_detail
 
     async def store_battle_histories(self, battle_histories) -> List[bool]:
@@ -203,9 +203,10 @@ class StatsManager:
                 coop_histories = await self.loop.run_in_executor(
                     self._executor,
                     partial(s3s.fetch_json_raw, "CoopHistoryQuery")
-                    )
+                )
             except requests.exceptions.ConnectionError:
-                self.logger.exception("Connection Error on fetch_coop_histories()")
+                self.logger.exception(
+                    "Connection Error on fetch_coop_histories()")
                 pass
             except Exception as e:
                 self.logger.exception("Exception on fetch_coop_histories()")
@@ -231,7 +232,8 @@ class StatsManager:
             try:
                 coop_detail = await self.loop.run_in_executor(self._executor, partial(s3s.fetch_detailed_result, False, id))
             except requests.exceptions.ConnectionError:
-                self.logger.exception("Connection Error on fetch_coop_detail()")     
+                self.logger.exception(
+                    "Connection Error on fetch_coop_detail()")
                 pass
             except Exception as e:
                 self.logger.exception("Exception on fetch_coop_detail()")
