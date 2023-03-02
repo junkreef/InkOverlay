@@ -38,6 +38,46 @@ def get_battle_detail(id):
         except StopIteration:
             abort(404)
 
+@app.route("/coop/<id>")
+def get_coop_detail(id):
+    if id == "latest":
+        data = mongodb.find_document_latest(mongodb.coop)
+        data["playedTime"] = data["playedTime"].strftime("%Y-%m-%dT%H:%M:%SZ")
+        data["startTime"] = data["startTime"].strftime("%Y-%m-%dT%H:%M:%SZ")
+        data["endTime"] = data["endTime"].strftime("%Y-%m-%dT%H:%M:%SZ")
+        if data is not None:
+            return json.dumps(data, separators=(',', ':'))
+        else:
+            abort(404)
+
+    else:
+        c = mongodb.coop.find({"id": id}, {"_id": 0})
+        try:
+            data = c.next()
+            data["playedTime"] = data["playedTime"].strftime(
+                "%Y-%m-%dT%H:%M:%SZ")
+            return json.dumps(data, separators=(',', ':'))
+        except StopIteration:
+            abort(404)
+
+@app.route("/info/last-game-type")
+def get_latest_game_type():
+    try:
+        coop_last_date = mongodb.coop.find({}, {"playedTime": 1}).sort("playedTime", -1).limit(1).next()["playedTime"]
+        battle_last_date = mongodb.battle.find({}, {"playedTime": 1}).sort("playedTime", -1).limit(1).next()["playedTime"]
+    except StopIteration:
+        if coop_last_date is not None:
+            return "{\"last_game_type\": \"coop\"}"
+        elif battle_last_date is not None:
+            return "{\"last_game_type\": \"battle\"}"
+        else:
+            return abort(404)
+
+    if(coop_last_date < battle_last_date):
+        return "{\"last_game_type\": \"battle\"}"
+    else:
+        return "{\"last_game_type\": \"coop\"}"
+
 # @app.route("/stats/winratio")
 # def get_stats_winratio():
 #     db = DbManager("./battlehistory.db")
